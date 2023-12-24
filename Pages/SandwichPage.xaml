@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Fetch.Pages.SandwichPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:Fetch.Models"
+    xmlns:viewmodel="clr-namespace:Fetch.ViewModels"
+    Title="Sandwich Shops"
+    x:DataType="viewmodel:SandwichViewModel">
+
+    <Grid
+        ColumnDefinitions="*,*"
+        ColumnSpacing="5"
+        RowDefinitions="*,Auto"
+        RowSpacing="0">
+        <!--<CollectionView
+            Grid.ColumnSpan="2"
+            ItemsSource="{Binding SandwichShops}"
+            SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:SandwichShop">
+                    <Grid Padding="10">
+                        <Frame HeightRequest="125" Style="{StaticResource CardView}">
+                            <Grid Padding="0" ColumnDefinitions="125,*">
+                                <Image Aspect="AspectFill" Source="primo_italian.jpg"
+                                       WidthRequest="125"
+                                       HeightRequest="125"/>
+                                <VerticalStackLayout
+                                    VerticalOptions="Center"
+                                    Grid.Column="1"
+                                    Padding="10">
+                                    <Label Text="{Binding Shop}" />
+                                    <Label Text="{Binding Location}" />
+                                    <Label Text="{Binding Specialty}" />
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Resturants"
+                Command="{Binding GetAllSandwichesCommand}"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Background="Yellow"
+                TextColor="Black"
+                Margin="8"/>-->
+
+    </Grid>
+</ContentPage>

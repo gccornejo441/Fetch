@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Application
+    x:Class="Fetch.App"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:Fetch.Converters"
+    xmlns:local="clr-namespace:Fetch"
+    xmlns:page="clr-namespace:Fetch.Pages">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary Source="Resources/Styles/DefaultTheme.xaml" />
+        </ResourceDictionary>
+    </Application.Resources>
+
+    <Application.MainPage>
+        <Shell
+            FlyoutBackgroundColor="{DynamicResource Background_Mid}"
+            FlyoutBehavior="Locked"
+            FlyoutWidth="68">
+            <Shell.FlyoutFooterTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="68">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </Grid.GestureRecognizers>
+                        <Image
+                            HeightRequest="40"
+                            HorizontalOptions="Center"
+                            Source="tab_settings.png"
+                            VerticalOptions="Center"
+                            WidthRequest="40" />
+                    </Grid>
+                </DataTemplate>
+            </Shell.FlyoutFooterTemplate>
+
+            <FlyoutItem Title="Home" Style="{StaticResource HomeFlyout}">
+                <ShellContent ContentTemplate="{DataTemplate page:HomePage}" />
+            </FlyoutItem>
+
+            <FlyoutItem Title="Greeting" Style="{StaticResource MapFlyout}">
+                <ShellContent ContentTemplate="{DataTemplate page:GreetingPage}" />
+            </FlyoutItem>
+            <FlyoutItem Title="Sandwich Shops" Style="{StaticResource SammieFlyout}">
+                <ShellContent ContentTemplate="{DataTemplate page:SandwichPage}" />
+            </FlyoutItem>
+
+            <Shell.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        ColumnDefinitions="44"
+                        HeightRequest="68"
+                        RowDefinitions="68"
+                        WidthRequest="44">
+                        <Image
+                            HeightRequest="38"
+                            HorizontalOptions="Center"
+                            Source="{Binding FlyoutIcon}"
+                            VerticalOptions="Center"
+                            WidthRequest="38" />
+                    </Grid>
+                </DataTemplate>
+
+            </Shell.ItemTemplate>
+
+        </Shell>
+    </Application.MainPage>
+
+
+</Application>
