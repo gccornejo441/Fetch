@@ -1,4 +1,5 @@
 ﻿using Fetch.Pages;
+using Fetch.Services;
 using Fetch.Shared;
 using Fetch.ViewModels;
 using Grpc.Net.Client;
@@ -27,15 +28,23 @@ namespace Fetch
 #endif
             services.AddSingleton(services =>
             {
-
                 var baseUri = new Uri(BaseAddress);
                 var channel = GrpcChannel.ForAddress(baseUri);
                 return new Greeter.GreeterClient(channel);
             });
 
+            services.AddSingleton(services =>
+            {
+                var baseUri = new Uri(BaseAddress);
+                var channel = GrpcChannel.ForAddress(baseUri);
+                return new SandwichShopService.SandwichShopServiceClient(channel);
+            });
+
             services.AddSingleton<HomePage>();
+
             services.AddSingleton<SandwichPage>();
             services.AddSingleton<SandwichViewModel>();
+            services.AddSingleton<ShopService>();
 
             services.AddSingleton<GreetingPage>();
             services.AddSingleton<GreeterViewModel>();

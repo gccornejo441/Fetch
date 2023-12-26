@@ -4,10 +4,11 @@ namespace Fetch.Pages;
 
 public partial class SandwichPage : ContentPage
 {
+    SandwichViewModel _sandwichViewModel;
 	public SandwichPage(SandwichViewModel sandwichViewModel)
 	{
 		InitializeComponent();
-
-		BindingContext = sandwichViewModel;
+		_sandwichViewModel = sandwichViewModel;
+        BindingContext = _sandwichViewModel;
 	}
 }

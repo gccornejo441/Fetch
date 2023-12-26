@@ -3,7 +3,7 @@
     x:Class="Fetch.Pages.SandwichPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:model="clr-namespace:Fetch.Models"
+    xmlns:model="clr-namespace:Fetch.Shared;assembly=Fetch.Shared"
     xmlns:viewmodel="clr-namespace:Fetch.ViewModels"
     Title="Sandwich Shops"
     x:DataType="viewmodel:SandwichViewModel">
@@ -13,26 +13,19 @@
         ColumnSpacing="5"
         RowDefinitions="*,Auto"
         RowSpacing="0">
-        <!--<CollectionView
+        <CollectionView
             Grid.ColumnSpan="2"
             ItemsSource="{Binding SandwichShops}"
             SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:SandwichShop">
                     <Grid Padding="10">
-                        <Frame HeightRequest="125" Style="{StaticResource CardView}">
+                        <Frame HeightRequest="125">
                             <Grid Padding="0" ColumnDefinitions="125,*">
                                 <Image Aspect="AspectFill" Source="primo_italian.jpg"
                                        WidthRequest="125"
                                        HeightRequest="125"/>
-                                <VerticalStackLayout
-                                    VerticalOptions="Center"
-                                    Grid.Column="1"
-                                    Padding="10">
-                                    <Label Text="{Binding Shop}" />
-                                    <Label Text="{Binding Location}" />
-                                    <Label Text="{Binding Specialty}" />
-                                </VerticalStackLayout>
+                                <Label Text="{Binding Shop}" FontSize="Body" TextColor="Black"/>
                             </Grid>
                         </Frame>
                     </Grid>
@@ -41,13 +34,13 @@
         </CollectionView>
 
         <Button Text="Resturants"
-                Command="{Binding GetAllSandwichesCommand}"
+                Command="{Binding SandwichShopsCommand}"
                 Grid.Row="1"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Background="Yellow"
                 TextColor="Black"
-                Margin="8"/>-->
+                Margin="8"/>
 
     </Grid>
 </ContentPage>
