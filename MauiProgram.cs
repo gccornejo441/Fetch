@@ -41,13 +41,16 @@ namespace Fetch
             });
 
             services.AddSingleton<HomePage>();
-
+            services.AddSingleton<AddShopPage>();
             services.AddSingleton<SandwichPage>();
-            services.AddSingleton<SandwichViewModel>();
-            services.AddSingleton<ShopService>();
-
             services.AddSingleton<GreetingPage>();
+
+            services.AddSingleton<HomePageViewModel>();
+            services.AddSingleton<SandwichViewModel>();
             services.AddSingleton<GreeterViewModel>();
+            services.AddTransient<AddShopViewModel>();
+
+            services.AddSingleton<ShopService>();
 
             return builder.Build();
         }

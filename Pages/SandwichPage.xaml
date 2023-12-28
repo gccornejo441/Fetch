@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:model="clr-namespace:Fetch.Shared;assembly=Fetch.Shared"
     xmlns:viewmodel="clr-namespace:Fetch.ViewModels"
-    Title="Sandwich Shops"
+    Title="{Binding DefaultShopName}"
     x:DataType="viewmodel:SandwichViewModel">
 
     <Grid
@@ -20,12 +20,30 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:SandwichShop">
                     <Grid Padding="10">
-                        <Frame HeightRequest="125">
+                        <Frame HeightRequest="125" Style="{StaticResource CardView}">
                             <Grid Padding="0" ColumnDefinitions="125,*">
-                                <Image Aspect="AspectFill" Source="primo_italian.jpg"
-                                       WidthRequest="125"
-                                       HeightRequest="125"/>
-                                <Label Text="{Binding Shop}" FontSize="Body" TextColor="Black"/>
+                                <Image
+                                    Aspect="AspectFill"
+                                    HeightRequest="125"
+                                    Source="primo_italian.jpg"
+                                    WidthRequest="125" />
+                                <VerticalStackLayout
+                                    Grid.Column="1"
+                                    Padding="10"
+                                    VerticalOptions="Center">
+                                    <Label Style="{StaticResource LargeLabel}" Text="{Binding Shop}" />
+                                    <Label Style="{StaticResource MediumLabel}" Text="{Binding Specialty}" />
+                                    <CollectionView ItemsSource="{Binding Address}">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate x:DataType="model:SandwhichLocation">
+                                                <Label
+                                                    FontSize="Caption"
+                                                    Text="{Binding Address}"
+                                                    TextColor="Red" />
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </VerticalStackLayout>
                             </Grid>
                         </Frame>
                     </Grid>
@@ -33,14 +51,24 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <Button Text="Resturants"
-                Command="{Binding SandwichShopsCommand}"
-                Grid.Row="1"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                Background="Yellow"
-                TextColor="Black"
-                Margin="8"/>
+        <Button
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Margin="8"
+            Background="{StaticResource Accent_Blue100}"
+            Command="{Binding SandwichShopsCommand}"
+            Text="Sandwhich Shops"
+            TextColor="Black" />
+
+        <ActivityIndicator
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="Fill"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            VerticalOptions="Center"
+            Color="{StaticResource Primary}" />
 
     </Grid>
 </ContentPage>

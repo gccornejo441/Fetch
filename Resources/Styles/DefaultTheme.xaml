@@ -7,9 +7,9 @@
     xmlns:app="clr-namespace:Fetch.Resources.Styles"
     xmlns:converter="clr-namespace:Fetch.Converters">
 
-    <Color x:Key="Primary">#512BD4</Color>
-    <Color x:Key="Secondary">#DFD8F7</Color>
-    <Color x:Key="Tertiary">#2B0B98</Color>
+    <Color x:Key="Primary">#f5b03d</Color>
+    <Color x:Key="Secondary">#faeed9</Color>
+    <Color x:Key="Tertiary">#f7a20c</Color>
     <Color x:Key="Neutral">#969696</Color>
     <Color x:Key="NeutralLighter">#E5E5E1</Color>
     <Color x:Key="NeutralDarker">#505050</Color>
@@ -58,6 +58,49 @@
                 Value="#CC0000" />-->
         <Setter Property="Shell.NavBarHasShadow" Value="False" />
 
+    </Style>
+
+
+    <Style x:Key="BaseLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="TextColor" Value="{StaticResource Primary}" />
+    </Style>
+
+    <Style
+        x:Key="MicroLabel"
+        BasedOn="{StaticResource BaseLabel}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="10" />
+    </Style>
+
+    <Style
+        x:Key="SmallLabel"
+        BasedOn="{StaticResource BaseLabel}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+
+    <Style
+        x:Key="MediumLabel"
+        BasedOn="{StaticResource BaseLabel}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <Style
+        x:Key="LargeLabel"
+        BasedOn="{StaticResource BaseLabel}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="20" />
+    </Style>
+
+    <Style x:Key="CardView" TargetType="Frame">
+        <Setter Property="BorderColor" Value="#DDDDDD" />
+        <Setter Property="HasShadow" Value="{OnPlatform iOS=false, MacCatalyst=false, Default=true}" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Background" Value="{StaticResource Accent_Blue200}" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="IsClippedToBounds" Value="True" />
     </Style>
 
     <Style
@@ -231,6 +274,7 @@
         TargetType="Button">
         <Setter Property="Padding" Value="4" />
     </Style>
+
     <Style
         x:Key="TertiaryButtonOutline"
         BasedOn="{StaticResource PrimaryButtonOutline}"

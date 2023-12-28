@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Fetch.Pages.AddShopPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:Fetch.Shared;assembly=Fetch.Shared"
+    xmlns:viewmodel="clr-namespace:Fetch.ViewModels"
+    Title="Add Shop"
+    x:DataType="viewmodel:AddShopViewModel">
+
+    <ScrollView>
+        <StackLayout
+            Padding="10"
+            Orientation="Vertical"
+            Spacing="20"
+            VerticalOptions="FillAndExpand">
+            <Grid
+                x:DataType="model:SandwichShop"
+                RowDefinitions="*,*,*,*,*"
+                RowSpacing="20">
+                <Label
+                    x:Name="shopNameLbl"
+                    Grid.Row="0"
+                    x:DataType="viewmodel:AddShopViewModel"
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource LargeLabel}"
+                    Text="{Binding DefaultPageTitle}" />
+
+                <Grid Grid.Row="1" RowDefinitions="Auto,*">
+                    <Label Style="{StaticResource MediumLabel}" Text="Shop Name:" />
+                    <Entry
+                        x:Name="shopEntry"
+                        Grid.Row="1"
+                        ClearButtonVisibility="WhileEditing"
+                        Placeholder="Shop Name"
+                        Text="{Binding Shop}" />
+                </Grid>
+
+                <Grid Grid.Row="2" RowDefinitions="Auto,*">
+                    <Label Style="{StaticResource MediumLabel}" Text="Location:" />
+                    <Entry
+                        x:Name="locationEntry"
+                        Grid.Row="1"
+                        ClearButtonVisibility="WhileEditing"
+                        Placeholder="Location"
+                        Text="{Binding Address}" />
+                </Grid>
+
+                <Grid Grid.Row="3" RowDefinitions="Auto,*">
+                    <Label Style="{StaticResource MediumLabel}" Text="Specialty:" />
+                    <Entry
+                        x:Name="specialtyEntry"
+                        Grid.Row="1"
+                        ClearButtonVisibility="WhileEditing"
+                        Placeholder="Specialty"
+                        Text="{Binding Specialty}" />
+                </Grid>
+
+                <Grid
+                    Grid.Row="4"
+                    x:DataType="viewmodel:AddShopViewModel"
+                    RowDefinitions="Auto,*">
+                    <Button
+                        x:Name="submitButton"
+                        Command="{Binding PostNewShopCommand}"
+                        Style="{StaticResource PrimaryButtonOutline}"
+                        Text="Submit" />
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+
+
+</ContentPage>

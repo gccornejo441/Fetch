@@ -7,6 +7,8 @@ namespace Fetch
         public App()
         {
             InitializeComponent();
+
+            Routing.RegisterRoute("AddShopPage", typeof(AddShopPage));
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)

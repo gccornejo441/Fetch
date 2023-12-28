@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Fetch.Pages.GreetingPage"
-             xmlns:vm="clr-namespace:Fetch.ViewModels"
-             x:DataType="vm:GreeterViewModel"
-             Title="GreetingPage">
+<ContentPage
+    x:Class="Fetch.Pages.GreetingPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Fetch.ViewModels"
+    Title="GreetingPage"
+    x:DataType="vm:GreeterViewModel">
     <VerticalStackLayout>
-        <Label 
+        <Label
             x:Name="greetLbl"
-            Text="{Binding GreetingMessage}"
-            VerticalOptions="Center" 
             FontSize="Header"
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            Text="{Binding GreetingMessage}"
+            VerticalOptions="Center" />
 
-        <Button Text="Get Greet Message"
-                FontAttributes="Bold"
-                Clicked="Button_Clicked"
-                HorizontalOptions="Center"/>
-        
+        <Button
+            Clicked="Button_Clicked"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Text="Get Greet Message" />
+
     </VerticalStackLayout>
 </ContentPage>

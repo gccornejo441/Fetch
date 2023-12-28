@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Fetch.ViewModels
 {
-    public partial class SandwichViewModel : ObservableObject
+    public partial class SandwichViewModel : BaseViewModel
     {
         public ObservableCollection<SandwichShop> SandwichShops { get; } = new();
 
@@ -22,18 +22,23 @@ namespace Fetch.ViewModels
         public SandwichViewModel(ShopService shopService)
         {
             _shopService = shopService;
-            DefaultShopName = "Default Name Title";
+            DefaultShopName = 0;
         }
 
         [ObservableProperty]
-        string defaultShopName;
+        int defaultShopName;
 
-        
+
         [RelayCommand]
         public async Task SandwichShopsAsync()
         {
+            if (IsBusy)
+                return;
+
             try
             {
+                IsBusy = true;
+
                 var sandwhiches = _shopService.GetSandwichShops();
                 foreach (var shop in sandwhiches)
                 {
@@ -44,11 +49,17 @@ namespace Fetch.ViewModels
             {
                 Debug.Write(ex.Message);
             }
+            finally
+            {
+                IsBusy = false;
+            }
 
             foreach (var shop in SandwichShops)
             {
-                DefaultShopName = shop.Shop;
+                DefaultShopName = SandwichShops.Count();
+
             }
-        }   
+
+        }
     }
 }
