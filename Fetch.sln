@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fetch.Cli", "..\Fetch.Cli\F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fetch.Model", "..\Fetch.Model\Fetch.Model.csproj", "{E39BD7ED-3327-478B-B192-ACDAB0AFEA55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fetch.Web", "..\Fetch.Web\Fetch.Web\Fetch.Web.csproj", "{C019DCDE-AFB7-4438-84C7-14E392D6581E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fetch.Web.Client", "..\Fetch.Web\Fetch.Web.Client\Fetch.Web.Client.csproj", "{13B9EDB8-A3C7-4E71-92D3-18AE2D506A71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{E39BD7ED-3327-478B-B192-ACDAB0AFEA55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E39BD7ED-3327-478B-B192-ACDAB0AFEA55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E39BD7ED-3327-478B-B192-ACDAB0AFEA55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C019DCDE-AFB7-4438-84C7-14E392D6581E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C019DCDE-AFB7-4438-84C7-14E392D6581E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C019DCDE-AFB7-4438-84C7-14E392D6581E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C019DCDE-AFB7-4438-84C7-14E392D6581E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13B9EDB8-A3C7-4E71-92D3-18AE2D506A71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13B9EDB8-A3C7-4E71-92D3-18AE2D506A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13B9EDB8-A3C7-4E71-92D3-18AE2D506A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13B9EDB8-A3C7-4E71-92D3-18AE2D506A71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

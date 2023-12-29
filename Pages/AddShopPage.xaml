@@ -15,7 +15,6 @@
             Spacing="20"
             VerticalOptions="FillAndExpand">
             <Grid
-                x:DataType="model:SandwichShop"
                 RowDefinitions="*,*,*,*,*"
                 RowSpacing="20">
                 <Label
@@ -33,17 +32,17 @@
                         Grid.Row="1"
                         ClearButtonVisibility="WhileEditing"
                         Placeholder="Shop Name"
-                        Text="{Binding Shop}" />
+                        Text="{Binding CurrentShop.Shop1}" />
                 </Grid>
 
                 <Grid Grid.Row="2" RowDefinitions="Auto,*">
-                    <Label Style="{StaticResource MediumLabel}" Text="Location:" />
+                    <Label Style="{StaticResource MediumLabel}" Text="Address:" />
                     <Entry
-                        x:Name="locationEntry"
+                        x:Name="AddressEntry"
                         Grid.Row="1"
                         ClearButtonVisibility="WhileEditing"
-                        Placeholder="Location"
-                        Text="{Binding Address}" />
+                        Placeholder="Address"
+                        Text="{Binding CurrentShop.Locations}" />
                 </Grid>
 
                 <Grid Grid.Row="3" RowDefinitions="Auto,*">
@@ -53,7 +52,7 @@
                         Grid.Row="1"
                         ClearButtonVisibility="WhileEditing"
                         Placeholder="Specialty"
-                        Text="{Binding Specialty}" />
+                        Text="{Binding CurrentShop.Specialty}" />
                 </Grid>
 
                 <Grid
