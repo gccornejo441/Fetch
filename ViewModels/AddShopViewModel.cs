@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Fetch.Model.Entities;
-using Fetch.Shared;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
