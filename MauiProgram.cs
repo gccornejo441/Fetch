@@ -40,17 +40,28 @@ namespace Fetch
                 return new SandwichShopService.SandwichShopServiceClient(channel);
             });
 
+            services.AddSingleton(services =>
+            {
+                var baseUri = new Uri(BaseAddress);
+                var channel = GrpcChannel.ForAddress(baseUri);
+                return new RestaurantService.RestaurantServiceClient(channel);
+            });
+
             services.AddSingleton<HomePage>();
             services.AddSingleton<AddShopPage>();
+            services.AddSingleton<AddRestaurantPage>();
             services.AddSingleton<SandwichPage>();
             services.AddSingleton<GreetingPage>();
 
+            services.AddSingleton<AddRestaurantViewModel>();
             services.AddSingleton<HomePageViewModel>();
             services.AddSingleton<SandwichViewModel>();
             services.AddSingleton<GreeterViewModel>();
             services.AddTransient<AddShopViewModel>();
 
             services.AddSingleton<ShopService>();
+            services.AddScoped<IRestaurantServices, RestaurantServices>();
+
 
             return builder.Build();
         }

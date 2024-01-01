@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Fetch.Pages.AddRestaurantPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:Fetch.Models"
+    xmlns:viewmodel="clr-namespace:Fetch.ViewModels"
+    Title="Add Restaurant Page"
+    x:DataType="viewmodel:AddRestaurantViewModel">
+    <ScrollView>
+        <StackLayout
+            Padding="10"
+            Orientation="Vertical"
+            Spacing="20"
+            VerticalOptions="FillAndExpand">
+            <Label
+                x:Name="pageTitleLbl"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource LargeLabel}"
+                Text="{Binding ValidationMessage}" />
+
+            <Entry
+                x:Name="nameEntry"
+                ClearButtonVisibility="WhileEditing"
+                Placeholder="Restaurant Name"
+                Text="{Binding CurrentRestaurantObj.Name}" />
+
+            <Entry
+                x:Name="typeIdEntry"
+                ClearButtonVisibility="WhileEditing"
+                Keyboard="Numeric"
+                Placeholder="Type ID (number)"
+                Text="{Binding CurrentRestaurantObj.TypeId}" />
+
+            <Entry
+                x:Name="addressEntry"
+                ClearButtonVisibility="WhileEditing"
+                Placeholder="Address"
+                Text="{Binding CurrentRestaurantObj.Address}" />
+
+            <Entry
+                x:Name="ratingEntry"
+                ClearButtonVisibility="WhileEditing"
+                Keyboard="Numeric"
+                Placeholder="Rating (0.0 to 5.0)"
+                Text="{Binding CurrentRestaurantObj.Rating}" />
+
+            <Entry
+                x:Name="phoneNumberEntry"
+                ClearButtonVisibility="WhileEditing"
+                Placeholder="Phone Number"
+                Text="{Binding CurrentRestaurantObj.PhoneNumber}" />
+
+            <Entry
+                x:Name="websiteUrlEntry"
+                ClearButtonVisibility="WhileEditing"
+                Placeholder="Website URL"
+                Text="{Binding CurrentRestaurantObj.WebsiteUrl}" />
+
+            <Entry
+                x:Name="descriptionEntry"
+                ClearButtonVisibility="WhileEditing"
+                Placeholder="Description"
+                Text="{Binding CurrentRestaurantObj.Description}" />
+
+            <Entry
+                x:Name="openingHoursEntry"
+                ClearButtonVisibility="WhileEditing"
+                Placeholder="Opening Hours"
+                Text="{Binding CurrentRestaurantObj.OpeningHours}" />
+
+            <Button
+                x:Name="submitButton"
+                Command="{Binding PostNewRestaurantCommand}"
+                Style="{StaticResource PrimaryButtonOutline}"
+                Text="Submit" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

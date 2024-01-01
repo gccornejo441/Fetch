@@ -12,7 +12,7 @@ namespace Fetch.ViewModels
         [RelayCommand]
         async Task GoToAddShop()
         {
-            await Shell.Current.GoToAsync(nameof(AddShopPage));
+            await Shell.Current.GoToAsync(nameof(AddRestaurantPage));
             
         }
     }

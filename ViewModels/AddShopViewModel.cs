@@ -15,6 +15,7 @@ namespace Fetch.ViewModels
     {
         [ObservableProperty]
         Shop currentShop;
+
         [ObservableProperty]
         string defaultPageTitle;
         

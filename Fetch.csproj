@@ -81,6 +81,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\AddRestaurantPage.xaml.cs">
+	    <DependentUpon>AddRestaurantPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Pages\AddRestaurantPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\AddShopPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
