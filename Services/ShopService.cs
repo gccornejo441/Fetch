@@ -1,12 +1,4 @@
-﻿using Fetch.Model.Entities;
-using Fetch.Shared;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Location = Fetch.Model.Entities.Location;
+﻿using Fetch.Shared;
 
 namespace Fetch.Services
 {
@@ -22,12 +14,12 @@ namespace Fetch.Services
         List<SandwichShop> sandwichShop = new();
         public List<SandwichShop> GetSandwichShops()
         {
-                var shops = _client.GetAllSandwichShops(new Google.Protobuf.WellKnownTypes.Empty());
+            var shops = _client.GetAllSandwichShops(new Google.Protobuf.WellKnownTypes.Empty());
 
-                foreach (var shop in shops.SandwichShops)
-                {
-                    sandwichShop.Add(shop);
-                }
+            foreach (var shop in shops.SandwichShops)
+            {
+                sandwichShop.Add(shop);
+            }
 
             return sandwichShop;
         }

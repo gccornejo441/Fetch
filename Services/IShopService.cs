@@ -1,4 +1,4 @@
-﻿using Fetch.Model.Entities;
+﻿using Fetch.Model.ShopModels;
 
 namespace Fetch.Services;
 

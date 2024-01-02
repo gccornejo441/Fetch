@@ -1,21 +1,18 @@
-﻿using Fetch.Shared;
+﻿namespace Fetch;
 
-namespace Fetch
+public partial class App : Application
 {
-    public partial class App : Application
+    public App()
     {
-        public App()
-        {
-            InitializeComponent();
+        InitializeComponent();
 
-            Routing.RegisterRoute("AddRestaurantPage", typeof(AddRestaurantPage));
-        }
-
-        private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
-        {
-            await Shell.Current.DisplayAlert("Unable to dial", "Phone dialing not supported.", "OK");
-        }
-
+        Routing.RegisterRoute("AddRestaurantPage", typeof(AddRestaurantPage));
     }
+
+    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+        await Shell.Current.DisplayAlert("Unable to dial", "Phone dialing not supported.", "OK");
+    }
+
 }
 
