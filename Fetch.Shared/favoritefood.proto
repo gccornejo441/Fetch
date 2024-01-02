@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+option csharp_namespace = "Fetch.Shared";
+
+import "google/protobuf/Empty.proto";
+
+// Service definition
+service FavoriteFoodService {
+    // Create a new favorite place
+    rpc CreateFavoritePlace(CreateFavoritePlaceRequest) returns (FavoritePlace);
+
+    // Get a favorite place by ID
+    rpc GetFavoritePlace(GetFavoritePlaceRequest) returns (FavoritePlace);
+
+    // Update a favorite place
+    rpc UpdateFavoritePlace(UpdateFavoritePlaceRequest) returns (FavoritePlace);
+
+    // Delete a favorite place
+    rpc DeleteFavoritePlace(DeleteFavoritePlaceRequest) returns (DeleteFavoritePlaceResponse);
+
+    // List all favorite places
+    rpc ListFavoritePlaces(ListFavoritePlacesRequest) returns (ListFavoritePlacesResponse);
+}
+
+message FavoritePlace {
+    string id = 1; // Unique identifier
+    string name = 2; // Name of the place
+    string type = 3; // Type (e.g., burger, burrito, etc.)
+    string address = 4; // Address
+    float rating = 5; // User rating
+    string favoriteFood =6;
+}
+
+// Request and Response messages
+message CreateFavoritePlaceRequest {
+    string name = 1;
+    string type = 2;
+    string address = 3;
+    float rating = 4;
+}
+
+message GetFavoritePlaceRequest {
+    string id = 1;
+}
+
+message UpdateFavoritePlaceRequest {
+    string id = 1;
+    FavoritePlace place = 2; // Contains the updated details
+}
+
+message DeleteFavoritePlaceRequest {
+    string id = 1;
+}
+
+message DeleteFavoritePlaceResponse {
+    bool success = 1;
+}
+
+message ListFavoritePlacesRequest {
+    repeated FavoritePlace places = 1;  // The list of favorite places for the current page
+    int32 currentPage = 2;              // The current page number
+    int32 totalPages = 3;               // Total number of pages available
+    int32 totalItems = 4;               // Total number of items across all pages
+}
+
+message ListFavoritePlacesResponse {
+    repeated FavoritePlace places = 1;
+}
+

@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+option csharp_namespace = "Fetch.Shared";
+
+// Import necessary gRPC packages
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+// Message representing a restaurant type
+message FoodType {
+    int32 id = 1;
+    string type_name = 2;
+}
+
+// Message representing a food type
+message RestaurantType {
+    int32 id = 1;
+    string type_name = 2;
+}
+
+// Message representing a restaurant
+message Restaurant {
+    int32 id = 1;
+    string name = 2;
+    int32 restaurant_type_id = 3;
+    string address = 4;
+    double rating = 5;
+    string phone_number = 6;
+    string website_url = 7;
+    string description = 8;
+    string opening_hours = 9;
+    int32 food_type_id = 10;
+}
+
+// Message representing a location
+message Location {
+    int32 id = 1;
+    int32 restaurant_id = 2;
+    string address = 3;
+    string city = 4;
+    string state = 5;
+    string zip_code = 6;
+}
+
+// Service for managing restaurants
+service RestaurantService {
+    // CRUD operations for Restaurant
+    rpc CreateRestaurant(Restaurant) returns (Restaurant);
+    rpc GetRestaurantById(google.protobuf.Int32Value) returns (Restaurant);
+    rpc UpdateRestaurant(Restaurant) returns (Restaurant);
+    rpc DeleteRestaurant(google.protobuf.Int32Value) returns (google.protobuf.Empty);
+    rpc ListRestaurants(google.protobuf.Empty) returns (stream Restaurant);
+
+    // CRUD operations for Location
+    rpc CreateLocation(Location) returns (Location);
+    rpc GetLocationById(google.protobuf.Int32Value) returns (Location);
+    rpc UpdateLocation(Location) returns (Location);
+    rpc DeleteLocation(google.protobuf.Int32Value) returns (google.protobuf.Empty);
+    rpc ListLocations(google.protobuf.Empty) returns (stream Location);
+
+    // CRUD operations for RestaurantType
+    rpc CreateRestaurantType(RestaurantType) returns (RestaurantType);
+    rpc GetRestaurantTypeById(google.protobuf.Int32Value) returns (RestaurantType);
+    rpc UpdateRestaurantType(RestaurantType) returns (RestaurantType);
+    rpc DeleteRestaurantType(google.protobuf.Int32Value) returns (google.protobuf.Empty);
+    rpc ListRestaurantTypes(google.protobuf.Empty) returns (stream RestaurantType);
+
+    // CRUD operations for FoodType
+    rpc CreateFoodType(FoodType) returns (FoodType);
+    rpc GetFoodTypeById(google.protobuf.Int32Value) returns (FoodType);
+    rpc UpdateFoodType(FoodType) returns (FoodType);
+    rpc DeleteFoodType(google.protobuf.Int32Value) returns (google.protobuf.Empty);
+    rpc ListFoodTypes(google.protobuf.Empty) returns (stream FoodType);
+}
