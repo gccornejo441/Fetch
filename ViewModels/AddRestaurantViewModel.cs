@@ -64,7 +64,7 @@ public partial class AddRestaurantViewModel : BaseViewModel
         }
 
         // Validate TypeId (Assuming it should be a positive number)
-        if (restaurant.TypeId <= 0)
+        if (restaurant.RestaurantTypeId <= 0)
         {
             ValidationMessage = "Invalid Type ID. Type ID must be positive.";
             return false;

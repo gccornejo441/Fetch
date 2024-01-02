@@ -13,9 +13,7 @@
             Orientation="Vertical"
             Spacing="20"
             VerticalOptions="FillAndExpand">
-            <Grid
-                RowDefinitions="*,*,*,*,*"
-                RowSpacing="20">
+            <Grid RowDefinitions="*,*,*,*,*" RowSpacing="20">
                 <Label
                     x:Name="shopNameLbl"
                     Grid.Row="0"

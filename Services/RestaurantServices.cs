@@ -15,7 +15,7 @@ public class RestaurantServices : IRestaurantServices
        var insertedRestaurant = _client.CreateRestaurant(new Restaurant
         {
             Name = restaurant.Name,
-            TypeId = restaurant.TypeId,
+            RestaurantTypeId = restaurant.RestaurantTypeId,
             Address = restaurant.Address,
             Rating = restaurant.Rating,
             PhoneNumber = restaurant.PhoneNumber,

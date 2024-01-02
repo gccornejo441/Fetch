@@ -30,7 +30,7 @@
                 ClearButtonVisibility="WhileEditing"
                 Keyboard="Numeric"
                 Placeholder="Type ID (number)"
-                Text="{Binding CurrentRestaurantObj.TypeId}" />
+                Text="{Binding CurrentRestaurantObj.RestaurantTypeId}" />
 
             <Entry
                 x:Name="addressEntry"
