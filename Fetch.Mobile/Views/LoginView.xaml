@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fetch.Mobile.Views.LoginView"
+             Title="LoginPage"
+			 Shell.FlyoutBehavior="Disabled"
+			 Shell.NavBarIsVisible="False"
+			 Shell.TabBarIsVisible="False">
+	<ContentPage.Title>
+		<OnPlatform x:TypeArguments="x:String">
+			<On Platform="iOS, WinUI" Value="eShop on Containers"/>
+		</OnPlatform>
+	</ContentPage.Title>
+
+	<ContentPage.Resources>
+		<Style x:Key="TitleLabelStyle"
+                TargetType="{x:Type Label}">
+			<Setter Property="FontFamily"
+                    Value="Montserrat-Regular" />
+			<Setter Property="FontAttributes"
+                    Value="Bold" />
+			<Setter Property="FontSize"
+                    Value="{StaticResource MediumSize}" />
+			<Setter Property="HorizontalOptions"
+                    Value="Center" />
+			<Setter Property="Margin"
+                    Value="0, 12" />
+		</Style>
+	</ContentPage.Resources>
+
+	<Grid>
+		<!-- MOCK AUTH -->
+		<Grid
+            x:Name="LoginPanel"
+            IsVisible="{Binding IsMock}"
+            Padding="0"
+            ColumnSpacing="0"
+            RowSpacing="0"
+			RowDefinitions="Auto, Auto, Auto, *, 60">
+			<!-- LOGIN / REGISTER / SETTINGS -->
+			<Grid
+                Grid.Row="0"
+                Margin="48, 24"
+				RowDefinitions="66"
+				ColumnDefinitions="*,*,*">
+				<StackLayout
+                    Grid.Column="0"
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center">
+					<Label
+                        Text="["
+                        TextColor="{StaticResource LightGreenColor}"/>
+					<Label
+                        Text="LOGIN"
+                        FontAttributes="Bold"/>
+					<Label
+                        Text="]"
+                        TextColor="{StaticResource LightGreenColor}"/>
+				</StackLayout>
+				<Grid
+                    Grid.Column="1"
+                    HorizontalOptions="Center">
+					<Label
+                        Text="REGISTER"
+                        TextColor="Gray"/>
+				</Grid>
+				<StackLayout
+                    Grid.Column="2"
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center">
+					<Label
+                        Text="SETTINGS"/>
+					<!--<StackLayout.GestureRecognizers>
+						<TapGestureRecognizer
+                            Command="{Binding SettingsCommand}"
+                            NumberOfTapsRequired="1" />
+					</StackLayout.GestureRecognizers>-->
+				</StackLayout>
+			</Grid>
+			<!-- INFO -->
+			<Label
+              Grid.Row="1"
+              Text="ARE YOU REGISTERED?"
+              Style="{StaticResource TitleLabelStyle}"/>
+		</Grid>
+	</Grid>
+</ContentPage>
