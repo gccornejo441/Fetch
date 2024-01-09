@@ -1,4 +1,5 @@
 ﻿using Fetch.Mobile.Services;
+using Fetch.Mobile.Views;
 
 namespace Fetch.Mobile
 {
@@ -15,6 +16,7 @@ namespace Fetch.Mobile
 
         private static void InitializeRouting()
         {
+            Routing.RegisterRoute("CommandView", typeof(CommandView));
         }
     }
 }

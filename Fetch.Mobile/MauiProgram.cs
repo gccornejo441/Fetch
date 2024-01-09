@@ -8,23 +8,18 @@ namespace Fetch.Mobile;
 
 public static class MauiProgram
 {
-    public static MauiApp CreateMauiApp()
-    {
-        var builder = MauiApp.CreateBuilder();
-        builder
+    public static MauiApp CreateMauiApp() =>
+        MauiApp.CreateBuilder()
             .UseMauiApp<App>()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             })
+        .RegisterViewModel()
             .RegisterAppServices()
             .Build();
 
-
-
-        return builder.Build();
-    }
 
     public static MauiAppBuilder RegisterAppServices(this MauiAppBuilder app)
     {
@@ -37,9 +32,16 @@ public static class MauiProgram
         return app;
     }
 
+    public static MauiAppBuilder RegisterViewModel(this MauiAppBuilder app)
+    {
+        app.Services.AddSingleton<CommandViewModel>();
+        return app;
+    }
+
     public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
     {
         mauiAppBuilder.Services.AddTransient<LoginView>();
+        mauiAppBuilder.Services.AddTransient<CommandView>();
 
         return mauiAppBuilder;
     }

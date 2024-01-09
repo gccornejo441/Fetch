@@ -1,5 +1,4 @@
-﻿namespace Fetch.Mobile;
+﻿global using Fetch.Mobile.ViewModel;
+global using CommunityToolkit.Mvvm.Input;
+global using CommunityToolkit.Mvvm.ComponentModel;
 
-internal class GlobalUsings
-{
-}
